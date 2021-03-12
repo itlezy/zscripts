@@ -28,3 +28,5 @@ IF EXIST w:\bak (
 )
 
 DEL /F /Q YY_prj_*.rar
+
+EXIT
