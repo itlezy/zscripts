@@ -1,0 +1,20 @@
+@ECHO OFF
+
+CD /D %~dp0
+
+SET TORRPATH=x:\torr_OK
+
+IF NOT EXIST %TORRPATH% (
+    ECHO x: NOT MOUNTED, PLEASE MOUNT
+    PAUSE
+)
+
+IF NOT EXIST %TORRPATH% (
+    ECHO x: NOT MOUNTED, PLEASE MOUNT
+    EXIT
+)
+
+IF EXIST %TORRPATH% (
+    CD /D "%PROGRAMFILES%\qBittorrent"
+    START "" "%PROGRAMFILES%\qBittorrent\qbittorrent.exe"
+)
