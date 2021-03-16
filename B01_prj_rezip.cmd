@@ -1,18 +1,20 @@
 CD /D %USERPROFILE%\my
 
+SET PRJ_DRV=r:
+
 DEL /F /Q YY_prj_*.rar
 
-IF NOT EXIST t:\prj (
-    ECHO T PRJ NOT MOUNTED, PLEASE MOUNT
+IF NOT EXIST %PRJ_DRV%\prj (
+    ECHO %PRJ_DRV% PRJ NOT MOUNTED, PLEASE MOUNT
     PAUSE
 )
 
-IF NOT EXIST t:\prj (
-    ECHO T PRJ NOT MOUNTED, PLEASE MOUNT
+IF NOT EXIST %PRJ_DRV%\prj (
+    ECHO %PRJ_DRV% PRJ NOT MOUNTED, PLEASE MOUNT
     EXIT
 )
 
-rar a -m5 -hp%PAZZWD% -ma5 -r -rr10 -md1G -s -inul -ag_YYYY-MM-DD YY_prj.rar c:\prj t:\prj
+rar a -m5 -hp%PAZZWD_PRJ% -ma5 -r -rr10 -md1G -s -inul -ag_YYYY-MM-DD YY_prj.rar c:\prj %PRJ_DRV%\prj
 
 DEL /F /Q gdrive\bak\YY_prj_*.rar
 COPY /B /V /Y YY_prj_*.rar gdrive\bak\

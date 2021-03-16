@@ -10,7 +10,7 @@ cd $USERPROFILE
 cd Downloads
 
 pwd
-sleep 2
+sleep 1
 
 for f in *.torrent
 do
