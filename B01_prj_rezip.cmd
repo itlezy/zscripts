@@ -1,39 +1,33 @@
 CD /D %USERPROFILE%\my
 
-SET PRJ_DRV=r:
+SET BKSETNAME=prj
 
-DEL /F /Q YY_prj_*.rar
+DEL /F /Q YY_%BKSETNAME%_*.rar
 
-IF NOT EXIST %PRJ_DRV%\prj (
-    ECHO %PRJ_DRV% PRJ NOT MOUNTED, PLEASE MOUNT
-    PAUSE
-)
+rar a -m5 -hp%PAZZWD_PRJ% -v500000k -mt1 -ma5 -r -rr10 -md1G -s -inul -ag_YYYY-MM-DD YY_%BKSETNAME%.rar c:\%BKSETNAME%
 
-IF NOT EXIST %PRJ_DRV%\prj (
-    ECHO %PRJ_DRV% PRJ NOT MOUNTED, PLEASE MOUNT
-    EXIT
-)
+CALL:DOBKP %USERPROFILE%\my\gdrive
+CALL:DOBKP d: 
+CALL:DOBKP o:
+CALL:DOBKP w:
 
-rar a -m5 -hp%PAZZWD_PRJ% -ma5 -r -rr10 -md1G -s -inul -ag_YYYY-MM-DD YY_prj.rar c:\prj %PRJ_DRV%\prj
+DEL /F /Q YY_%BKSETNAME%_*.rar
 
-DEL /F /Q gdrive\bak\YY_prj_*.rar
-COPY /B /V /Y YY_prj_*.rar gdrive\bak\
+EXIT
 
-IF EXIST d:\bak (
-    DEL /F /Q d:\bak\YY_prj_*.rar
-    COPY /B /V /Y YY_prj_*.rar d:\bak\
-)
+GOTO:EOF
 
-IF EXIST o:\bak (
-    DEL /F /Q o:\bak\YY_prj_*.rar
-    COPY /B /V /Y YY_prj_*.rar o:\bak\
-)
+:DOBKP
+SET TGTZ=%~1
 
-IF EXIST w:\bak (
-    DEL /F /Q w:\bak\YY_prj_*.rar
-    COPY /B /V /Y YY_prj_*.rar w:\bak\
-)
+	IF NOT EXIST %TGTZ%\bak (
+	  MKDIR %TGTZ%\bak
+	)
 
-DEL /F /Q YY_prj_*.rar
+	IF EXIST %TGTZ%\bak (
+		DEL /F /Q %TGTZ%\bak\YY_%BKSETNAME%_*.rar
+		COPY /B /V /Y YY_%BKSETNAME%_*.rar %TGTZ%\bak\
+	)
+GOTO:EOF
 
 EXIT

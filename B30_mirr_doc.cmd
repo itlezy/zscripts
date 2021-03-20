@@ -1,15 +1,19 @@
 CD /D %~dp0
 
-IF EXIST d:\bak (
-  robocopy /MIR doc d:\bak\doc
-)
+CALL:DOMIRR d
+CALL:DOMIRR j
 
-exit
+GOTO:EOF
 
-IF EXIST e:\bak (
-  robocopy /MIR doc e:\bak\doc
-)
+:DOMIRR
+	SET TGTDRV=%~1
 
-IF EXIST w:\bak (
-  robocopy /MIR doc w:\bak\doc
-)
+	IF NOT EXIST %TGTDRV%:\bak (
+	  MKDIR %TGTDRV%:\bak
+	)
+
+	IF EXIST %TGTDRV%:\bak (
+	  ROBOCOPY /MIR %USERPROFILE%\my\doc %TGTDRV%:\bak\doc
+	  RMDIR /S /Q %TGTDRV%:\bak\doc\.tresorit
+	)
+GOTO:EOF
