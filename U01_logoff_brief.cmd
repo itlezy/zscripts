@@ -20,6 +20,4 @@ ECHO:
 ECHO:
 SLEEP 5
 
-CALL U01_preshutdown.cmd
-
 CALL U01_logoffcmd.cmd
