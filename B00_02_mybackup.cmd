@@ -14,7 +14,7 @@ CD /D %BKDSTA%
 
 CALL:DOBACKUP my,"%USERPROFILE%\my"
 CALL:DOBACKUP Documents,"%USERPROFILE%\Documents"
-CALL:DOBACKUP Downloads,"%USERPROFILE%\Downloads"
+REM CALL:DOBACKUP Downloads,"%USERPROFILE%\Downloads"
 CALL:DOBACKUP prj,"c:\prj"
 CALL:DOBACKUP bin,"c:\bin"
 

@@ -21,15 +21,15 @@ do
     exit
   fi
 
-  if [ -f "zwadwnldd/$fz" ]; then
+  if [ -f "/x/torr_archived/$fz" ]; then
     echo "Removing dup $fz"
     rm "$fz"
   fi
   
-  if [ ! -f "zwadwnldd/$fz" ]; then
-    echo "Creating placeholder $fz"
-    echo -n "1">"zwadwnldd/$fz"
-    attrib +H +S "zwadwnldd/$fz"
+  if [ ! -f "/x/torr_archived/$fz" ]; then
+    echo "Creating placeholder /x/torr_archived/$fz"
+    echo -n "1">"/x/torr_archived/$fz"
+    # attrib +H +S "zwadwnldd/$fz"
   fi
 
 done
