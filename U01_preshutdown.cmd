@@ -1,3 +1,7 @@
+CD /D %~dp0
+
+CALL U02_startup_env.cmd
+
 c:\bin\EmptyRecycleBin.exe /Q
 
 taskkill /IM qbittorrent.exe

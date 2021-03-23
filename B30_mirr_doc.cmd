@@ -1,9 +1,10 @@
 CD /D %~dp0
 
-CALL:DOMIRR d
-CALL:DOMIRR j
-CALL:DOMIRR o
-CALL:DOMIRR q
+(FOR %%C IN (%BAK_MIR_DST_DRV%) DO (
+	CALL:DOMIRR %%C
+))
+
+EXIT
 
 GOTO:EOF
 
@@ -11,11 +12,14 @@ GOTO:EOF
 	SET TGTDRV=%~1
 
 	IF NOT EXIST %TGTDRV%:\bak (
-	  MKDIR %TGTDRV%:\bak
+		MKDIR %TGTDRV%:\bak
 	)
 
 	IF EXIST %TGTDRV%:\bak (
-	  ROBOCOPY /MIR %USERPROFILE%\my\doc %TGTDRV%:\bak\doc
-	  RMDIR /S /Q %TGTDRV%:\bak\doc\.tresorit
+		TITLE MIRRORING FROM %USERPROFILE%\my\doc TO %TGTDRV%:\bak
+		ROBOCOPY /MIR %USERPROFILE%\my\doc %TGTDRV%:\bak\doc
+		REM RMDIR /S /Q %TGTDRV%:\bak\doc\.tresorit
 	)
 GOTO:EOF
+
+EXIT
