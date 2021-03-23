@@ -1,13 +1,9 @@
-gglsrchEN  := "https://www.google.com/search?num=50&gl=en&hl=en&lr=lang_en&safe=off&q="
-gglsrchIT  := "https://www.google.com/search?num=50&gl=it&hl=it&lr=lang_it&safe=off&q="
-gglchrm    := "c:\Program Files\Google\Chrome\Application\chrome.exe"
-gglprof    := "Profile 1"
-
 ; ! Alt
 ; ^ Control
 ; + Shift
 
 ; Handy shortcuts
+ #F8::Run, "c:\bin\zscripts\A02_remdupsloc.sh"
  #F9::Run, "%USERPROFILE%\my\doc\security\DatabaseNewIreland.kdbx"
 #F11::Run, "%USERPROFILE%\Documents\Toolbar\Control-Audio Devices.lnk"
 #F12::Run, "%SystemRoot%\System32\SndVol.exe"

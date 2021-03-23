@@ -1,12 +1,16 @@
-SET BKDST=w:\bak
-SET BKDSTA=o:\bak
+@ECHO OFF
 
 SET RAR="%ProgramFiles%\WinRAR\rar.exe"
+SET BKDSTA=w:\bak_mir\backup-current
 
-IF NOT EXIST %BKDST% MKDIR %BKDST%
 IF NOT EXIST %BKDSTA% MKDIR %BKDSTA%
 
-CD /D %BKDST%
+IF NOT EXIST %BKDSTA% (
+	ECHO TARGET IS MISSING %BKDSTA%
+	EXIT
+)
+
+CD /D %BKDSTA%
 
 CALL:DOBACKUP my,"%USERPROFILE%\my"
 CALL:DOBACKUP Documents,"%USERPROFILE%\Documents"
@@ -24,7 +28,7 @@ GOTO:EOF
   IF EXIST %FBB%.rar RENAME %FBB%.rar %FBB%.bak
   REM %RAR% a -inul -m0 %FBB%.rar "%~2"
   REM %RAR% a -m0 -ma5 -r -x*.ova -x*.vmem -x*.vmdk %FBB%.rar "%~2" > mybackup_output.msg 2>> mybackup_output.err
-  %RAR% a -m1 -ma5 -r -md1G -inul %FBB%.rar "%~2"
-  COPY /B /V /Y %FBB%.rar %BKDSTA%\%FBB%.rar
+  %RAR% a -m1 -mt1 -ma5 -r -md1G -inul %FBB%.rar "%~2"
+  REM COPY /B /V /Y %FBB%.rar %BKDSTA%\%FBB%.rar
   IF EXIST %FBB%.bak DEL /F /Q %FBB%.bak
 GOTO:EOF
