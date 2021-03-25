@@ -1,9 +1,13 @@
 (FOR %%C IN (%ALL_DRIVES%) DO (
-   CALL:DOCHK %%C
+	CALL:DOCHK %%C
 ))
 
 GOTO:EOF
 
 :DOCHK
-	CHKDSK /F %~1:
+
+	IF EXIST %~1:\ (
+		CHKDSK /F %~1:
+	)
+
 GOTO:EOF

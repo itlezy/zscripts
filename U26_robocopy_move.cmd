@@ -1,0 +1,12 @@
+@ECHO OFF
+
+ECHO CmdLine : '%CmdCmdLine%'
+ECHO O
+ECHO PSTAR   : '%*'
+ECHO O
+
+ECHO ROBOCOPY /S /Z /MOVE %*
+
+PAUSE
+
+ROBOCOPY /S /Z /MOVE %*

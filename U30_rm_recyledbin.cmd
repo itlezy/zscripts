@@ -1,7 +1,7 @@
 CD /D %~dp0
 
 (FOR %%C IN (%ALL_DRIVES_NOC%) DO (
-   CALL:DORMR %%C
+	CALL:DORMR %%C
 ))
 
 GOTO:EOF

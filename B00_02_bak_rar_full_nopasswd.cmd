@@ -1,5 +1,9 @@
 @ECHO OFF
 
+CD /D %~dp0
+
+CALL U02_startup_env.cmd
+
 SET RAR="%ProgramFiles%\WinRAR\rar.exe"
 SET BKDSTA=%BAK_SRC_DRV%:\bak_mir\backup-current
 
@@ -14,7 +18,7 @@ CD /D %BKDSTA%
 
 CALL:DOBACKUP my,"%USERPROFILE%\my"
 CALL:DOBACKUP Documents,"%USERPROFILE%\Documents"
-REM CALL:DOBACKUP Downloads,"%USERPROFILE%\Downloads"
+CALL:DOBACKUP Downloads,"%USERPROFILE%\Downloads"
 CALL:DOBACKUP prj,"c:\prj"
 CALL:DOBACKUP bin,"c:\bin"
 

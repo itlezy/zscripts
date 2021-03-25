@@ -2,6 +2,8 @@
 
 CD /D %~dp0
 
+CALL U02_startup_env.cmd
+
 SET SRCDRV=%BAK_SRC_DRV%
 SET BAKMIR=bak_mir
 

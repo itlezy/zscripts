@@ -4,7 +4,7 @@ SET BKSETNAME=prj
 
 DEL /F /Q YY_%BKSETNAME%_*.rar
 
-rar a -m5 -hp%PAZZWD_PRJ% -v500000k -mt1 -ma5 -r -rr10 -md1G -s -inul -ag_YYYY-MM-DD YY_%BKSETNAME%.rar c:\%BKSETNAME%
+rar a -m5 -hp%PAZZWD_PRJ% -v500000k -mt2 -ma5 -r -rr10 -md1G -s -inul -ag_YYYY-MM-DD YY_%BKSETNAME%.rar c:\%BKSETNAME%
 
 
 

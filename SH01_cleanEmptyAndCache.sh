@@ -1,3 +1,6 @@
+echo "You sure?"
+read
+
 #find . -type d -name "*ache*" -exec basename {} \; | sort | uniq
 
 find . -type d -name "ActionCenterCache" -exec rm -rf {} \;

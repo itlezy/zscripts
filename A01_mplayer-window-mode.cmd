@@ -1,20 +1,18 @@
 @ECHO OFF
 
-MODE 250,40
+COLOR 08
+MODE 280,75
 
-tskill mplayer
+TSKILL mplayer
 
-REM CD /D c:\bin\smplayer-portable-19.1.0.0\mplayer
 CD /D "%PROGRAMFILES%\SMPlayer\mplayer"
 
 REM START "" /REALTIME /MIN mplayer.exe -idx -vo gl -zoom -x 1024 -y 768 -volume 55 %1
 REM START "" /REALTIME mplayer.exe -vo gl -zoom -xy 1600 -vf scale -volume 55 %1
-CALL mplayer.exe -noautosub -quiet -vo gl -zoom -xy 1600 -vf scale -volume 55 %1
 
+CALL mplayer.exe -identify -noautosub -quiet -vo gl -zoom -xy 1600 -vf scale -volume 55 %*
 
 EXIT 
-
-
 
 ECHO %1
 CD /D %~dp0
