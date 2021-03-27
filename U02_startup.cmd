@@ -1,12 +1,10 @@
 CD /D %~dp0
 
-CALL U02_startup_env.cmd
-
 REM START lockpc.cmd
 
 POWERCFG /H off
 
-START c:\bin\vcautomount.cmd
+START %G_BIN%\vcautomount.cmd
 
 CALL U20_syncstartmenu.cmd
 

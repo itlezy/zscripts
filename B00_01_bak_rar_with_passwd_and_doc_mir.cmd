@@ -2,11 +2,10 @@
 
 CD /D %~dp0
 
-CALL U02_startup_env.cmd
 CALL B00_secret_SET_PASSWD.cmd
 
 START B01_doc_rezip.cmd
-START B30_mirr_doc.cmd
+START B30_doc_mir.cmd
 START B01_prj_rezip.cmd
 
 IF EXIST r: (

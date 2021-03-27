@@ -1,19 +1,20 @@
+@ECHO OFF
+
 CD /D %USERPROFILE%\my\gdrive\bak
 
 SET BKSETNAME=doc
 
 DEL /F /Q YY_%BKSETNAME%_*.rar
 
+ECHO %CD% %BKSETNAME% COMPRESSING..
 rar a -m5 -hp%PAZZWD_DOC% -v500000k -mt2 -ma5 -r -rr10 -md1G -s -inul -ag_YYYY-MM-DD YY_%BKSETNAME%.rar %USERPROFILE%\my\%BKSETNAME%
 
 COPY /B /V /Y %USERPROFILE%\my\doc\security\DatabaseNewIreland.kdbx %USERPROFILE%\my\gdrive\bak
 
-
-(FOR %%C IN (%BAK_RARWPASS_DST_DRV%) DO (
+(FOR %%C IN (%ALL_DRIVES_NOC%) DO (
 	CALL:DOBKP %%C
 ))
 
-CALL:DOBKP %BAK_SRC_DRV%
 
 
 EXIT
@@ -21,7 +22,14 @@ EXIT
 GOTO:EOF
 
 :DOBKP
-SET TGTZ=%~1
+	SET TGTZ=%~1
+
+	IF NOT EXIST %TGTZ%:\meta\bak.%BKSETNAME%.dat (
+		ECHO NOT A BACKUP TARGET %TGTZ% SKIPPING..
+		EXIT /B
+	)
+
+	TITLE COPYING BACKUP SET FROM YY_%BKSETNAME%_*.rar TO %TGTZ%:\bak\
 
 	IF NOT EXIST %TGTZ%:\bak (
 		MKDIR %TGTZ%:\bak

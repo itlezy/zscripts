@@ -1,9 +1,11 @@
+; ----
+
 ; ! Alt
 ; ^ Control
 ; + Shift
 
 ; Handy shortcuts
- #F8::Run, "c:\bin\zscripts\A02_remdupsloc.sh"
+ #F8::Run, "%G_ZSCRIPTS%\A02_remdupsloc.sh"
  #F9::Run, "%USERPROFILE%\my\doc\security\DatabaseNewIreland.kdbx"
 #F11::Run, "%USERPROFILE%\Documents\Toolbar\Control-Audio Devices.lnk"
 #F12::Run, "%SystemRoot%\System32\SndVol.exe"
@@ -27,10 +29,10 @@ return
 return
 
 ; Computer Control Commands
- #8::Run,   "c:\bin\zscripts\U01_poweroff_full.cmd"
-^#8::Run,   "c:\bin\zscripts\U01_standby_loop.cmd"
- #9::Run,   "c:\bin\zscripts\U01_reboot_full.cmd"
-^#9::Run,   "c:\bin\zscripts\U01_logoff_full.cmd"
+ #8::Run,   "%G_ZSCRIPTS%\U01_poweroff_full.cmd"
+^#8::Run,   "%G_ZSCRIPTS%\U01_standby_loop.cmd"
+ #9::Run,   "%G_ZSCRIPTS%\U01_reboot_full.cmd"
+^#9::Run,   "%G_ZSCRIPTS%\U01_logoff_full.cmd"
 
 ; Copy selection to plain text by pasting in Notepad2
 #c::
@@ -58,6 +60,12 @@ return
     Run, "%ProgramFiles%\Notepad2\Notepad2.exe"
     Sleep, 600
     Send, ^v
+    Sleep, 100
+    Send, ^a
+    Sleep, 100
+    Send, ^c
+    ClipWait
+    Send, {Left}
 return
 
 ; Remap Explorer Shortcut
@@ -138,7 +146,7 @@ return
 ; + Shift
 
 ; Ping Google IP (Check Internet)
-#m::Run, "c:\bin\zscripts\U20_pgoip.cmd"
+#m::Run, "%G_ZSCRIPTS%\U20_pgoip.cmd"
 
 ; Launch Notepad2
 #n::
@@ -148,7 +156,7 @@ return
 
 ; Launch Command Prompt
 #p::
-    SetWorkingDir, c:\bin
+    SetWorkingDir, %G_BIN%
     Run, %ComSpec%
     ;Run, c:\tools\Cmder\Cmder.exe
 return
@@ -161,7 +169,7 @@ return
 ^#y::WinHide, A
 
 #u::
-    Run, c:\bin\USB_Disk_Eject.exe
+    Run, %G_BIN%\USB_Disk_Eject.exe
     Sleep, 2000
     IfWinExist, USB Disk Ejector
     {      
@@ -179,6 +187,10 @@ return
 ;   Click::Send {Up}
 ;   ;RightClick::Send {Up}
 ; #IfWinActive
+
+#IfWinActive ahk_exe mplayer.exe
+    z::Run, "%G_ZSCRIPTS%\U30_killmpc.cmd", ,min
+#IfWinActive
 
 ; Redefine only when the active window is a console window
 #IfWinActive ahk_class ConsoleWindowClass
@@ -211,8 +223,8 @@ return
     F4::
     !F4::
         WinGet, wpid, PID, A
-        ;MsgBox "c:\bin\sysin\pskill.exe -t %wpid%"
-        ;Run, c:\bin\sysin\pskill.exe -t %wpid%
+        ;MsgBox "%G_BIN%\sysin\pskill.exe -t %wpid%"
+        ;Run, %G_BIN%\sysin\pskill.exe -t %wpid%
         Run, TASKKILL /PID %wpid% /T /F
     return
 #IfWinActive
@@ -274,9 +286,9 @@ return
 #,::WheelUp
 #.::WheelDown
 
-  #0::Run, "c:\bin\zscripts\U30_killmpc.cmd", ,min
- ^#0::Run, "c:\bin\zscripts\U30_restartExplorer.cmd", ,min
-^!#0::Run, "c:\bin\zscripts\U30_restartExplorer-nvidia.cmd", ,min
+  #0::Run, "%G_ZSCRIPTS%\U30_killmpc.cmd", ,min
+ ^#0::Run, "%G_ZSCRIPTS%\U30_restartExplorer.cmd", ,min
+^!#0::Run, "%G_ZSCRIPTS%\U30_restartExplorer-nvidia.cmd", ,min
 
 ; x (left), y (top), cx (W), cy (H)
 ; ! Alt
@@ -443,3 +455,5 @@ return
 
 #NumpadSub::Send {Volume_Down}
 #NumpadAdd::Send {Volume_Up}
+
+; ----

@@ -1,1 +1,1 @@
-c:\bin\poweroff_scheduler.exe standby
+%G_BIN%\poweroff_scheduler.exe standby

@@ -1,1 +1,1 @@
-c:\bin\poweroff_scheduler.exe logoff -force
+%G_BIN%\poweroff_scheduler.exe logoff -force
