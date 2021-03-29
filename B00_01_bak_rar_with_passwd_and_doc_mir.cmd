@@ -1,14 +1,19 @@
 @ECHO OFF
 
 CD /D %~dp0
-
 CALL B00_secret_SET_PASSWD.cmd
 
+CD /D %~dp0
 CALL B01_doc_rezip.cmd
+
+CD /D %~dp0
 CALL B30_doc_mir.cmd
+
+CD /D %~dp0
 CALL B01_prj_rezip.cmd
 
 IF EXIST r: (
+	CD /D %~dp0
 	CALL B01_prj_gbest_rezip.cmd
 )
 
