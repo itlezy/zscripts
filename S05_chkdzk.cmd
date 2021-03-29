@@ -1,8 +1,8 @@
 (FOR %%C IN (%ALL_DRIVES%) DO (
-	CALL:DOCHK %%C
+	CALL :DOCHK %%C
 ))
 
-GOTO:EOF
+GOTO :EOF
 
 :DOCHK
 
@@ -10,4 +10,4 @@ GOTO:EOF
 		CHKDSK /F %~1:
 	)
 
-GOTO:EOF
+GOTO :EOF

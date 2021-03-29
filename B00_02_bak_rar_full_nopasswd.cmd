@@ -3,19 +3,17 @@
 CD /D %~dp0
 
 (FOR %%C IN (%ALL_DRIVES_NOC%) DO (
-	CALL:DOBKP %%C
+	CALL :DOBKP %%C
 ))
 
-EXIT
-
-GOTO:EOF
+GOTO :EOF
 
 :DOBKP
 	SET TGTZ=%~1
 
 	IF NOT EXIST %TGTZ%:\meta\bak.full_rar.dat (
 		ECHO NOT A BACKUP TARGET %TGTZ% SKIPPING..
-		EXIT /B
+		GOTO :EOF
 	)
 
 	SET BKDSTA=%TGTZ%:\bak_mir\backup-current
@@ -26,17 +24,17 @@ GOTO:EOF
 
 	IF NOT EXIST %BKDSTA% (
 		ECHO TARGET IS STILL MISSING %BKDSTA%
-		EXIT /B
+		GOTO :EOF
 	)
 
 	CD /D %BKDSTA%
 
-	CALL:DOBACKUP my,"%USERPROFILE%\my"
-	CALL:DOBACKUP Documents,"%USERPROFILE%\Documents"
-	CALL:DOBACKUP Downloads,"%USERPROFILE%\Downloads"
-	CALL:DOBACKUP prj,"%G_PRJ%"
-	CALL:DOBACKUP bin,"%G_BIN%"
-GOTO:EOF
+	CALL :DOBACKUP my,"%USERPROFILE%\my"
+	CALL :DOBACKUP Documents,"%USERPROFILE%\Documents"
+	CALL :DOBACKUP Downloads,"%USERPROFILE%\Downloads"
+	CALL :DOBACKUP prj,"%G_PRJ%"
+	CALL :DOBACKUP bin,"%G_BIN%"
+GOTO :EOF
 
 :DOBACKUP
 	SET FBB=ZZ_FullBackup_%~1
@@ -47,6 +45,4 @@ GOTO:EOF
 	REM %RAR% a -m0 -ma5 -r -x*.ova -x*.vmem -x*.vmdk %FBB%.rar "%~2" > mybackup_output.msg 2>> mybackup_output.err
 	rar a -m1 -mt4 -ma5 -r -md1G -inul %FBB%.rar "%~2"
 	IF EXIST %FBB%.bak DEL /F /Q %FBB%.bak
-GOTO:EOF
-
-EXIT
+GOTO :EOF
