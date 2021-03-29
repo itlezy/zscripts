@@ -1,5 +1,8 @@
 CD /D %~dp0
 
+CD /D "%TMP%"  && RMDIR /S /Q .
+CD /D "%TEMP%" && RMDIR /S /Q .
+
 (FOR %%C IN (%ALL_DRIVES_NOC%) DO (
 	CALL :DORMR %%C
 ))
