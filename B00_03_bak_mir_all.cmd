@@ -12,7 +12,7 @@ SET BAKMIR=bak_mir
 	IF EXIST %%C:\meta\bak_mir.main_source.dat (
 		SET BAK_SRC_DRV=%%C
 		ECHO FOUND MAIN BACKUP SOURCE %%C BREAKING LOOP..
-		GOTO:PROCEED
+		GOTO :PROCEED
 	)
 ))
 

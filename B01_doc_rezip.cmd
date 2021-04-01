@@ -9,7 +9,7 @@ DEL /F /Q YY_%BKSETNAME%_*.rar
 ECHO %CD% %BKSETNAME% COMPRESSING..
 rar a -hp%PAZZWD_DOC% -m5 -v500000k -mt2 -ma5 -r -rr10 -md1G -s -inul -ag_YYYY-MM-DD YY_%BKSETNAME%.rar %USERPROFILE%\my\%BKSETNAME%
 
-COPY /B /V /Y %USERPROFILE%\my\doc\security\DatabaseNewIreland.kdbx %USERPROFILE%\my\gdrive\bak
+COPY /B /V /Y %USERPROFILE%\my\doc\security\DatabaseNewIreland*.kdbx %USERPROFILE%\my\gdrive\bak
 
 (FOR %%C IN (%ALL_DRIVES_NOC%) DO (
 	CALL :DOBKP %%C
@@ -28,7 +28,7 @@ GOTO :EOF
 		GOTO :EOF
 	)
 
-	TITLE COPYING BACKUP SET FROM YY_%BKSETNAME%_*.rar TO %TGTZ%:\bak\
+	ECHO COPYING BACKUP SET FROM YY_%BKSETNAME%_*.rar TO %TGTZ%:\bak\
 
 	IF NOT EXIST %TGTZ%:\bak (
 		MKDIR %TGTZ%:\bak
@@ -37,6 +37,6 @@ GOTO :EOF
 	IF EXIST %TGTZ%:\bak (
 		DEL /F /Q %TGTZ%:\bak\YY_%BKSETNAME%_*.rar
 		COPY /B /V /Y YY_%BKSETNAME%_*.rar %TGTZ%:\bak\
-		COPY /B /V /Y %USERPROFILE%\my\doc\security\DatabaseNewIreland.kdbx %TGTZ%:\bak\
+		COPY /B /V /Y %USERPROFILE%\my\doc\security\DatabaseNewIreland*.kdbx %TGTZ%:\bak\
 	)
 GOTO :EOF

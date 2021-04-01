@@ -6,7 +6,7 @@
 
 ; Handy shortcuts
  #F8::Run, "%G_ZSCRIPTS%\A02_remdupsloc.sh"
- #F9::Run, "%USERPROFILE%\my\doc\security\DatabaseNewIreland.kdbx"
+ #F9::Run, "%USERPROFILE%\my\doc\security\DatabaseNewIreland4.kdbx"
 #F11::Run, "%USERPROFILE%\Documents\Toolbar\Control-Audio Devices.lnk"
 #F12::Run, "%SystemRoot%\System32\SndVol.exe"
 
@@ -162,7 +162,7 @@ return
 return
 
 ; Set Current Window Always On Top
-#a:: Winset, AlwaysOnTop, toggle, A
+#a::Winset, AlwaysOnTop, toggle, A
 #t::WinSet, Style, ^0xC00000, A
 
 ; CTRL + MS + y Hide Current Window
@@ -189,7 +189,8 @@ return
 ; #IfWinActive
 
 #IfWinActive ahk_exe mplayer.exe
-    z::Run, "%G_ZSCRIPTS%\U30_killmpc.cmd", ,min
+    Backspace::WinKill
+    ;Run, "%G_ZSCRIPTS%\U30_killmpc.cmd", ,min
 #IfWinActive
 
 ; Redefine only when the active window is a console window
