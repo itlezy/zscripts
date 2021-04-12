@@ -29,10 +29,11 @@ return
 return
 
 ; Computer Control Commands
- #8::Run,   "%G_ZSCRIPTS%\U01_poweroff_full.cmd"
-^#8::Run,   "%G_ZSCRIPTS%\U01_standby_loop.cmd"
- #9::Run,   "%G_ZSCRIPTS%\U01_reboot_full.cmd"
-^#9::Run,   "%G_ZSCRIPTS%\U01_logoff_full.cmd"
+  #8::Run,   "%G_ZSCRIPTS%\U01_poweroff_full.cmd"
+ ^#8::Run,   "%G_ZSCRIPTS%\U01_standby_loop.cmd"
+  #9::Run,   "%G_ZSCRIPTS%\U01_reboot_full.cmd"
+ ^#9::Run,   "%G_ZSCRIPTS%\U01_logoff_full.cmd"
+!^#9::Run,   "%G_ZSCRIPTS%\U01_switch_user.cmd"
 
 ; Copy selection to plain text by pasting in Notepad2
 #c::

@@ -2,11 +2,7 @@ CD /D %~dp0
 
 REM START lockpc.cmd
 
-POWERCFG /H off
-
-START %G_BIN%\vcautomount.cmd
-
-CALL U20_syncstartmenu.cmd
+START /MIN "" %G_BIN%\vcautomount.cmd
 
 REM MAIN
 SLEEP 5
