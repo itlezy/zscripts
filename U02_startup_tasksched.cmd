@@ -2,7 +2,7 @@ CD /D %~dp0
 
 POWERCFG /H off
 
-CALL U02_startup_env.cmd
+REM CALL U02_startup_env.cmd
 
 START /MIN "" "%ComSpec%" /C U20_syncstartmenu.cmd
 

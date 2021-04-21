@@ -12,6 +12,10 @@ cd Downloads
 pwd
 sleep 1
 
+# remove duplicate downloads in the first place
+rm *\ \(?\).torrent
+
+# check for duplicates in the archive and remove them
 for f in *.torrent
 do
 

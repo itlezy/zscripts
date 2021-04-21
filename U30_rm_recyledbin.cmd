@@ -1,4 +1,8 @@
+@ECHO OFF
+
 CD /D %~dp0
+
+MODE 15,1
 
 CD /D "%TMP%"  && RMDIR /S /Q .
 CD /D "%TEMP%" && RMDIR /S /Q .

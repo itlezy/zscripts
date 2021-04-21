@@ -4,6 +4,8 @@ REM START lockpc.cmd
 
 START /MIN "" %G_BIN%\vcautomount.cmd
 
+%G_BIN%\focusuf\focusuf.exe -fm -f 1 -n "life"
+
 REM MAIN
 SLEEP 5
 START "" /MAX /ABOVENORMAL "%ProgramFiles%\Google\Chrome\Application\chrome.exe" --disable-smooth-scrolling --start-maximized --profile-directory="Profile 2" 
