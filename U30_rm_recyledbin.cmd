@@ -2,15 +2,25 @@
 
 CD /D %~dp0
 
-MODE 15,1
+REM MODE 15,1
 
-CD /D "%TMP%"  && RMDIR /S /Q .
-CD /D "%TEMP%" && RMDIR /S /Q .
+ECHO Y | PowerShell.exe -NoProfile -Command Clear-RecycleBin
+
+CALL :DORMRDIR "%TMP%"
+CALL :DORMRDIR "%TEMP%"
+CALL :DORMRDIR "%APPDATA%\Telegram Desktop\tdata\user_data\cache"
+CALL :DORMRDIR "%APPDATA%\Telegram Desktop\tdata\user_data\media_cache"
+CALL :DORMRDIR "%LOCALAPPDATA%\SumatraPDF\sumatrapdfcache"
 
 (FOR %%C IN (%ALL_DRIVES_NOC%) DO (
 	CALL :DORMR %%C
 ))
 
+GOTO :EOF
+
+:DORMRDIR
+	ECHO RMRDIR "%~1"
+	CD /D "%~1" && RMDIR /S /Q .
 GOTO :EOF
 
 :DORMR

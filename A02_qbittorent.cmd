@@ -16,6 +16,8 @@ IF NOT EXIST %TORRPATH% (
 
 IF EXIST %TORRPATH% (
 	ECHO %TIME% > %TORRPATH%\wakeup.dat
+	DEL %TORRPATH%\wakeup.dat
+
 	CD /D "%PROGRAMFILES%\qBittorrent"
 	START "" "%PROGRAMFILES%\qBittorrent\qbittorrent.exe"
 )

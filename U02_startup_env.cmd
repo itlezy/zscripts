@@ -12,6 +12,11 @@ SETX ALL_DRIVES_NOC          "d e f g h i j k l m n o p q r s t u v w x y z"
 
 SETX G_TORRPATH            "x:\torr_OK"
 
+SETX G_CHROME_PROF_UWRK    "Profile 6"
+SETX G_CHROME_PROF_UMSC    "Profile 1"
+SETX G_CHROME_PROF_USRS    "Profile 2"
+SETX G_CHROME_CMDLINE_OPT  "--disable-smooth-scrolling --start-maximized"
+
 SETX G_BIN                 "c:\bin"                  /M
 SETX G_BIN_SYSIN           "c:\bin\sysin"            /M
 SETX G_BIN_TCMD            "c:\bin\totalcmd"         /M
