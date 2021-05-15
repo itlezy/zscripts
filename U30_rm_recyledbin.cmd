@@ -10,6 +10,14 @@ CALL :DORMRDIR "%TMP%"
 CALL :DORMRDIR "%TEMP%"
 CALL :DORMRDIR "%APPDATA%\Telegram Desktop\tdata\user_data\cache"
 CALL :DORMRDIR "%APPDATA%\Telegram Desktop\tdata\user_data\media_cache"
+CALL :DORMRDIR "%APPDATA%\WhatsApp\Cache"
+CALL :DORMRDIR "%APPDATA%\WhatsApp\Code Cache"
+CALL :DORMRDIR "%APPDATA%\WhatsApp\GPUCache"
+CALL :DORMRDIR "%APPDATA%\WhatsApp\Service Worker\CacheStorage"
+CALL :DORMRDIR "%LOCALAPPDATA%\cache"
+CALL :DORMRDIR "%LOCALAPPDATA%\npm-cache"
+CALL :DORMRDIR "%LOCALAPPDATA%\NVIDIA\GLCache"
+CALL :DORMRDIR "%LOCALAPPDATA%\OneDrive\cache"
 CALL :DORMRDIR "%LOCALAPPDATA%\SumatraPDF\sumatrapdfcache"
 
 (FOR %%C IN (%ALL_DRIVES_NOC%) DO (
@@ -20,7 +28,9 @@ GOTO :EOF
 
 :DORMRDIR
 	ECHO RMRDIR "%~1"
-	CD /D "%~1" && RMDIR /S /Q .
+	IF EXIST "%~1" (
+		CD /D "%~1" && RMDIR /S /Q .
+	)
 GOTO :EOF
 
 :DORMR

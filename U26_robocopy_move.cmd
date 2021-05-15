@@ -3,10 +3,16 @@
 ECHO CmdLine : '%CmdCmdLine%'
 ECHO O
 ECHO PSTAR   : '%*'
+ECHO P   1   : '%1'
+ECHO P   2   : '%2'
+ECHO P   3   : '%3'
 ECHO O
 
-ECHO ROBOCOPY /S /Z /MOVE %*
+SET ZSRC=%1
+SET ZDST=%2
+
+ECHO ROBOCOPY %ZSRC% %ZDST% /S /MOVE
 
 PAUSE
 
-ROBOCOPY /S /Z /MOVE %*
+ROBOCOPY %ZSRC% %ZDST% /S /MOVE

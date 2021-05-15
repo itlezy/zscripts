@@ -9,9 +9,6 @@ CD /D %~dp0
 CALL B01_doc_rezip.cmd
 
 CD /D %~dp0
-CALL B30_doc_mir.cmd
-
-CD /D %~dp0
 CALL B01_prj_rezip.cmd
 
 CD /D %~dp0
