@@ -241,22 +241,31 @@ return
 ; Chrome or Firefox Remap
 #If WinActive("ahk_class Chrome_WidgetWin_1") or WinActive("ahk_class MozillaWindowClass")
     F2::MouseClick, Middle
+
+    ^F2::
+        MouseClick, Middle
+        Sleep, 500
+        Send ^w
+    return
+
     F4::Send ^w
+
     F7::
         Send {WheelUp}
         Send {WheelUp}
         Send {WheelUp}
         Send {WheelUp}
-        return
+    return
+
     F8::
         Send {WheelDown}
         Send {WheelDown}
         Send {WheelDown}
         Send {WheelDown}
-        return
+    return
 
-    NumpadSub::Send ^{NumpadSub}
-    NumpadAdd::Send ^{NumpadAdd}
+    ; NumpadSub::Send ^{NumpadSub}
+    ; NumpadAdd::Send ^{NumpadAdd}
 #If
 
 ; Outlook Window, to zoom message with F2

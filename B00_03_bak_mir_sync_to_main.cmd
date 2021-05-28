@@ -27,6 +27,7 @@ IF NOT EXIST %BAK_SRC_DRV%:\%BAKMIR% (
 )
 
 CALL :DOMIRR "%USERPROFILE%\my\doc"        "%BAK_SRC_DRV%:\%BAKMIR%\backup-current-doc"
+CALL :DOMIRR "%USERPROFILE%\my\doc"        "%USERPROFILE%\OneDrive\doc"
 CALL :DOMIRR "%USERPROFILE%\my\gdrive\bak" "%BAK_SRC_DRV%:\%BAKMIR%\backup-current-rarpasswd"
 
 GOTO :EOF
