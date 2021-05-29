@@ -15,7 +15,7 @@ ECHO   ##    ##  ##       ##     ## ##     ## ##     ##    ##     ##  ##   ### #
 ECHO   ##     ## ######## ########   #######   #######     ##    #### ##    ##  ######   
 ECHO:
 ECHO:
-ECHO   PRESS CTRL+Q TO CANCEL
+ECHO   PRESS CTRL+C TO CANCEL
 ECHO:
 ECHO:
 SLEEP 5
