@@ -264,6 +264,11 @@ return
         Send {WheelDown}
     return
 
+    !d::
+        Send ^l
+        Sleep 200
+        Send !{Enter}
+    return
     ; NumpadSub::Send ^{NumpadSub}
     ; NumpadAdd::Send ^{NumpadAdd}
 #If

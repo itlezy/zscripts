@@ -2,7 +2,7 @@ CD /D %~dp0
 
 CALL U02_startup_env.cmd
 
-%G_BIN%\EmptyRecycleBin.exe /Q
+ECHO Y | PowerShell.exe -NoProfile -Command Clear-RecycleBin
 
 TASKKILL /IM qbittorrent.exe
 TASKKILL /IM uTorrent.exe
