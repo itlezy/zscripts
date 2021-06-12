@@ -2,7 +2,7 @@ CD /D %~dp0
 
 REM START lockpc.cmd
 
-START /MIN "" %G_BIN%\vcautomount.cmd
+REM START /MIN "" %G_BIN%\vcautomount.cmd
 
 START /MIN "" U02_startup_focus.cmd
 

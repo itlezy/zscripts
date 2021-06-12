@@ -29,7 +29,22 @@ return
 return
 
 ; Computer Control Commands
-  #8::Run,   "%G_ZSCRIPTS%\U01_poweroff_full.cmd"
+#8::
+    WinActivate, ahk_exe chrome.exe
+
+    if ErrorLevel
+    {
+    }
+    else
+    {
+        WinWaitActive, ahk_exe chrome.exe
+        Send !{f}
+        Send {x}
+    }
+
+    Run,   "%G_ZSCRIPTS%\U01_poweroff_full.cmd"
+return
+
  ^#8::Run,   "%G_ZSCRIPTS%\U01_standby_loop.cmd"
   #9::Run,   "%G_ZSCRIPTS%\U01_reboot_full.cmd"
  ^#9::Run,   "%G_ZSCRIPTS%\U01_logoff_full.cmd"
