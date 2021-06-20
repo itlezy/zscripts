@@ -39,7 +39,9 @@ return
     {
         WinWaitActive, ahk_exe chrome.exe
         Send !{f}
+        Sleep 100
         Send {x}
+        Sleep 300
     }
 
     Run,   "%G_ZSCRIPTS%\U01_poweroff_full.cmd"
