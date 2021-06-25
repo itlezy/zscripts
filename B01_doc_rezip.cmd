@@ -12,6 +12,10 @@ rar a -hp%PAZZWD_DOC% -m5 -v500000k -mt2 -ma5 -r -rr10 -md1G -s -inul -ag_YYYY-M
 DEL /F /Q %USERPROFILE%\my\gdrive\bak\*.kdbx
 COPY /B /V /Y %USERPROFILE%\my\doc\security\*.kdbx %USERPROFILE%\my\gdrive\bak
 
+
+
+GOTO :EOF
+
 (FOR %%C IN (%ALL_DRIVES_NOC%) DO (
 	CALL :DOBKP %%C
 ))

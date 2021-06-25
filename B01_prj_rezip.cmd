@@ -9,7 +9,10 @@ DEL /F /Q YY_%BKSETNAME%_*.rar
 ECHO %CD% %BKSETNAME% COMPRESSING..
 rar a -hp%PAZZWD_PRJ% -m5 -v500000k -mt2 -ma5 -r -rr10 -md1G -s -inul -ag_YYYY-MM-DD YY_%BKSETNAME%.rar %SystemDrive%\%BKSETNAME%
 
-REM X
+
+
+
+GOTO :EOF
 
 (FOR %%C IN (%ALL_DRIVES_NOC%) DO (
 	CALL :DOBKP %%C

@@ -25,6 +25,11 @@ rar a -hp%PAZZWD_PRJ_GBEST% -m5 -v500000k -mt2 -ma5 -r -rr10 -md1G -s -inul -ag_
 
 :SKIPRAR
 
+
+
+
+GOTO :EOF
+
 (FOR %%C IN (%ALL_DRIVES_NOC%) DO (
 	CALL :DOBKP %%C
 ))
