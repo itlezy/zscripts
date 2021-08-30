@@ -37,7 +37,7 @@ return
     }
     else
     {
-        WinWaitActive, ahk_exe chrome.exe
+        WinWaitActive, ahk_exe chrome.exe,, 3
         Send !{f}
         Sleep 100
         Send {x}
